@@ -37,8 +37,8 @@ public class Part1{
       bruh.add (s.split(" "));
     }
     for (int i = 0; i < bruh.size(); i++){
-      String x = (bruh.get(i))[0];
-      String y = (bruh.get(i))[1];
+      String y = (bruh.get(i))[0];
+      String x = (bruh.get(i))[1];
       if (y.equals ("X")){
         y = "A";
       }
@@ -48,7 +48,7 @@ public class Part1{
       if (y.equals ("Z")){
         y = "C";
       }
-      score += key.get(x) + winner (x,y);
+      score += key.get(y) + winner (y,x);
     }
     System.out.println(score);
   }
