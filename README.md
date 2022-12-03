@@ -1,1 +1,1 @@
-# AdventOfNuts2022
+# AdventOfCoding2022
