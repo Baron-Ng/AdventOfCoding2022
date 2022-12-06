@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.reflect.Array;
 
-public class Part1{
+public class Part2{
     public static ArrayList<ArrayList<String>> makeStacks (){
         ArrayList <ArrayList<String>> stacks = new ArrayList <> ();
         ArrayList<String> stack1 = new ArrayList<>(Arrays.asList("B","Z","T"));
@@ -36,10 +36,10 @@ public class Part1{
             sc.next();
             int end = sc.nextInt() - 1;
             System.out.println(amount + " " + start + " " + end);
+            int startIndex = stacks.get(start).size() - amount;
             for (int i = 0; i < amount; i++){
-                int startSize = stacks.get(start).size() - 1;
-                stacks.get(end).add(stacks.get(start).get(startSize));
-                stacks.get(start).remove(startSize);
+                stacks.get(end).add(stacks.get(start).get(startIndex));
+                stacks.get(start).remove(startIndex);
             }
         }
         for (int j = 0; j < stacks.size(); j++){
