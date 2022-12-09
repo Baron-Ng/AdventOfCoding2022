@@ -30,4 +30,15 @@ public class Point{
 	public String toString (){
 		return "(" + x + ", " + y + ")";
 	}
+
+	public boolean distance (Point other){
+		int otherX = other.getX();
+		int otherY = other.getY();
+		int distance = Math.sqrt (Math.pow((x - otherX),2) + Math.pow((Y - otherY),2));
+		return distance <= 1;
+	}
+
+	public void direction (Point other){
+		// determine in which direction to move
+	}
 }
