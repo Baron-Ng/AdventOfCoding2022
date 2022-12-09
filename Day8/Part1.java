@@ -24,7 +24,7 @@ public class Part1{
 				int height = trees.get(i).get(j);
 				boolean b = false;
 				boolean temp = true;
-				for (int k = j - 1; k > 0; k--){ // moving left on x axis
+				for (int k = j - 1; k >= 0; k--){ // moving left on x axis
 					temp = temp && (height > trees.get(i).get(k));
 				}
 				b = b || temp;
@@ -34,7 +34,7 @@ public class Part1{
 				}
 				b = b || temp;
 				temp = true;
-				for (int k = i - 1; k > 0; k--){  // moving up on y axis
+				for (int k = i - 1; k >= 0; k--){  // moving up on y axis
 					temp = temp && (height > trees.get(k).get(j));
 				}
 				b = b || temp;
@@ -54,7 +54,6 @@ public class Part1{
 		Scanner sc = new Scanner (System.in);
 		int sum = 0;
 		ArrayList <ArrayList<Integer>> trees = input(sc);
-		System.out.println (trees);
 		ArrayList <ArrayList<Boolean>> bools = arrayTrees (trees);
 		for (int i = 0; i < bools.size(); i++){
 			for (int j = 0; j < bools.get(i).size(); j++){
