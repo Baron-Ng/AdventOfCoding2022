@@ -1,0 +1,1 @@
+{"name":"Local: Driver","url":"c:\\Users\\Baron\\Desktop\\coding\\AdventOfCoding2022\\Day9\\Driver.java","tests":[{"id":1670640657934,"input":"R 4\nU 4\nL 3\nD 1\nR 4\nD 1\nL 5\nR 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Baron\\Desktop\\coding\\AdventOfCoding2022\\Day9\\Driver.java","group":"local","local":true}
