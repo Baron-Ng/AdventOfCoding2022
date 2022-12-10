@@ -6,7 +6,6 @@ public class Part1 {
         int cycle = 0;
         int x = 1;
         int amount = 0;
-        int counter = 0;
         int sum = 0;
         while (sc.hasNextLine()){
             String input = sc.next();
