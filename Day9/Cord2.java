@@ -51,93 +51,74 @@ public class Cord2{
 		x = otherX;
 		y = otherY;
 	}
-	public static ArrayList <ArrayList <Integer>> left (Cord2 tail, Cord2 head, int move){
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
+	public void left (Cord2 head, int move){
 		for (int i = 0; i < move; i++){
-			tail.save(head);
+			save(head);
 			head.setX (head.getX() - 1);
-			boolean b = tail.distance(head);
+			boolean b = distance(head);
 			if (!b){
-				tail.move();
+				move();
 			}
-			ArrayList <Integer> bruh = new ArrayList<>();
-			bruh.add (tail.getX());
-			bruh.add (tail.getY());
-			nice.add (bruh);
-			//System.out.println (tail + "T");
-			//System.out.println (head + "H");
 		}
-		return nice;
 	}
 
-	public static ArrayList <ArrayList <Integer>> right (Cord2 tail, Cord2 head, int move){
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
+	public void right (Cord2 head, int move){
 		for (int i = 0; i < move; i++){
-			tail.save(head);
+			save(head);
 			head.setX (head.getX() + 1);
-			boolean b = tail.distance(head);
+			boolean b = distance(head);
 			if (!b){
-				tail.move();
+				move();
 			}
-			ArrayList <Integer> bruh = new ArrayList<>();
-			bruh.add (tail.getX());
-			bruh.add (tail.getY());
-			nice.add (bruh);
-			//System.out.println (tail + "T");
-			//System.out.println (head + "H");
 		}
-		return nice;
 	}
 
-	public static ArrayList <ArrayList <Integer>> up (Cord2 tail, Cord2 head, int move){
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
+	public void up (Cord2 head, int move){
 		for (int i = 0; i < move; i++){
-			tail.save(head);
+			save(head);
 			head.setY (head.getY() + 1);
-			boolean b = tail.distance(head);
+			boolean b = distance(head);
 			if (!b){
-				tail.move();
+				move();
 			}
-			ArrayList <Integer> bruh = new ArrayList<>();
-			bruh.add (tail.getX());
-			bruh.add (tail.getY());
-			nice.add (bruh);
-			//System.out.println (tail + "T");
-			//System.out.println (head + "H");
 		}
-		return nice;
 	}
 
-	public static ArrayList <ArrayList <Integer>> down (Cord2 tail, Cord2 head, int move){
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
+	public void down (Cord2 head, int move){
 		for (int i = 0; i < move; i++){
-			tail.save(head);
+			save(head);
 			head.setY (head.getY() - 1);
-			boolean b = tail.distance(head);
+			boolean b = distance(head);
 			if (!b){
-				tail.move();
+				move();
 			}
-			ArrayList <Integer> bruh = new ArrayList<>();
-			bruh.add (tail.getX());
-			bruh.add (tail.getY());
-			nice.add (bruh);
-			//System.out.println (tail + "T");
-			//System.out.println (head + "H");
 		}
-		return nice;
 	}
 
-	public static ArrayList <ArrayList <Integer>> choose (Cord2 tail, Cord2 head, int move, char direction){
+	public void choose (Cord2 head, int move, char direction){
 		if (direction == 'L'){
-			return left(tail, head, move);
+			left(head, move);
 		}
 		if (direction == 'R'){
-			return right(tail, head, move);
+			right(head, move);
 		}
 		if (direction == 'D'){
-			return down(tail, head, move);
+			down(head, move);
 		}
-		return up(tail, head, move);
+		if (direction == 'U'){
+			up(head, move);
+		}
+	}
+
+	public void tailToTail (Cord2 head,Cord2 tail2,Cord2 tail3,Cord2 tail4,Cord2 tail5,Cord2 tail6,Cord2 tail7,Cord2 tail8,Cord2 tail9){
+		for (int i = 0; i < move; i++){
+			save(head);
+			head.setY (head.getY() - 1);
+			boolean b = distance(head);
+			if (!b){
+				move();
+			}
+		}
 	}
 
 	public static ArrayList <ArrayList <Integer>> removeDupes (ArrayList <ArrayList <Integer>> nice){
@@ -154,16 +135,7 @@ public class Cord2{
 		return nice;
 	}
 
-	public static ArrayList <ArrayList <Integer>> merge (ArrayList <ArrayList <Integer>> a, ArrayList <ArrayList <Integer>> b){
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
-		for (int i = 0; i < a.size(); i++){
-			nice.add (a.get(i));
-		}
-		for (int i = 0; i < b.size(); i++){
-			nice.add (b.get(i));
-		}
-		return nice;
-	}
+	public 
 
 	public static void main (String[] args){
 		Scanner sc = new Scanner (System.in);
@@ -180,15 +152,6 @@ public class Cord2{
 		Cord2 tail7 = new Cord2();
 		Cord2 tail8 = new Cord2();
 		Cord2 tail9 = new Cord2();
-		ArrayList <ArrayList <Integer>> sub1 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub2 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub3 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub4 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub5 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub6 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub7 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub8 = new ArrayList<>();
-		ArrayList <ArrayList <Integer>> sub9 = new ArrayList<>();
 		while (sc.hasNextLine()){
 			d.add (sc.next().charAt(0));
 			m.add (sc.nextInt());
@@ -196,13 +159,11 @@ public class Cord2{
 		for (int k = 0; k < d.size(); k++){
 			char direction = d.get(k);
 			int move = m.get(k);
-			sub1 = choose (tail1, head, move, direction);
+			ArrayList <Integer> bruh = new ArrayList<>();
+			tail1.choose (head, move, direction);
+			
 		}
-	}
-	public static void main (String [] args){
-		Scanner sc = new Scanner (System.in);
-		ArrayList <ArrayList <Integer>> nice = new ArrayList<>();
-		return (nice.size());
+		System.out.println (nice.size());
 		sc.close();
 	}
 }
