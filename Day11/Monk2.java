@@ -30,11 +30,11 @@ public class Monk2 {
     }
 
     public void operation (int index, Long item){
-        items.set (index, item);
+        items.set (index, item % 9699690);
     }
 
     public void change (Monk2 other, int index){
-        Long add = items.get(index);
+        Long add = items.get(index) % 9699690;
         other.add (add);
         items.remove (index);
     }
